@@ -1,0 +1,76 @@
+@font-face {
+	font-family: 'inter-regular';
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/Inter-Regular.woff2') format('woff2'),
+		url('/fonts/Inter-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'inter-medium';
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/Inter-Medium.woff2') format('woff2'),
+		url('/fonts/Inter-Medium.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'inter-semi-bold';
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/Inter-SemiBold.woff2') format('woff2'),
+		url('/fonts/Inter-SemiBold.woff') format('woff');
+}
+
+@tailwind base;
+@tailwind utilities;
+@tailwind screens;
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+body::after {
+	@apply sr-only;
+	content: 'root';
+}
+
+@screen sm {
+	body::after {
+		content: 'sm';
+	}
+}
+
+@screen md {
+	body::after {
+		content: 'md';
+	}
+}
+
+@screen lg {
+	body::after {
+		content: 'lg';
+	}
+}
+
+@screen xl {
+	body::after {
+		content: 'xl';
+	}
+}
+
+img,
+svg {
+	display: block;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
