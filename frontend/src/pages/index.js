@@ -10,25 +10,6 @@ export default () => {
 	const [isSuccessMessage, setIsSuccessMessage] = useState(false) // manage is success message state
 	const [messageSent, setMessageSent] = useState(false) // manage sent message state
 
-	// this effect function authenticates our subcriber user to get a token
-	// useEffect(() => {
-	// 	axios({
-	// 		method: 'post',
-	// 		url: `${WEBSITE_URL}/wp-json/jwt-auth/v1/token`,
-	// 		data: {
-	// 			username: 'authuser', // provide a user credential with subscriber role
-	// 			password: 'QXHPVbbfD060Vl^mM(f20tE9'
-	// 		},
-	// 		headers: {
-	// 			'Content-Type': 'application/json'
-	// 		}
-	// 	})
-	// 		.then(response => {
-	// 			setToken(response.data.token)
-	// 		})
-	// 		.catch(error => console.error('Error', error))
-	// }, [])
-
 	// use useFormik hook using object destructuring assignment to extract helpful methods
 	const { handleChange, isSubmitting, values, handleSubmit } = useFormik({
 		initialValues: {

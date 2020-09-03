@@ -754,3 +754,23 @@ function twentytwenty_get_elements_array() {
 	*/
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+
+
+function expose_acf_to_graphql_only($result, $rule, $screen, $field_group) {
+  if(!is_graphql_http_request()) {
+    return $result;
+  }
+
+  $page_template_acf_groups = [
+    'acfPageTemplateHome',
+    'acfPageTemplateAbout',
+    'acfPageTemplateContact',
+  ];
+
+  if(in_array($field_group['FieldImageText'], $page_template_acf_groups) && $screen['post_type'] === 'page') {
+    return true;
+  }
+
+  return $result;
+}
+add_filter('acf/location/rule_match', __NAMESPACE__.'\\expose_acf_to_graphql_only', 10, 4);
